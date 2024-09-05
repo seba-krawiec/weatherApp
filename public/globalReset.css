@@ -4,7 +4,11 @@
     box-sizing: border-box;
   }
 
+  html{
+    font-size: 62.5%;
+  }
+
   body{
     box-sizing: inherit;
-    font-size: 62.5%;
+    font-family: sans-serif;
   }

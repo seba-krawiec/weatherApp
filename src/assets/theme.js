@@ -21,7 +21,7 @@ export const theme = {
         large: "2.4rem"
     },
     gaps: {
-        cardStreets: "3.2rem",
+        cardStreets: "3.4rem",
     },
     borderRadius:{
         common: "1.5rem",

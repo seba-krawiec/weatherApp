@@ -3,18 +3,17 @@ import styled from 'styled-components'
 
 
 interface ContainerProps {
-width:string,
-height:string,
-flex:string,
-column: string,
-justify:string, 
-align: string,
-padding: string,
-margin: string,
-extraStyles: string,
-self:string,
-children: React.ReactElement | JSX.Element
-class:"string"
+width?:string,
+height?:string,
+flex?:boolean,
+column?: boolean,
+justify?:string, 
+align?: string,
+padding?: string,
+margin?: string,
+extraStyles?: string,
+self?:string,
+children?:  React.ReactNode ,
 }
 
 export const Container = styled.div<ContainerProps>`

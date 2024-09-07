@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Maincard } from '../components'
+import { Container, Maincard, Navbar } from '../components'
 import styled, { useTheme } from 'styled-components'
 
 export const Main = () => {
@@ -33,13 +33,11 @@ export const Main = () => {
         justify={"space-between"}
         align={"center"}
         >
-            <Container flex width="20rem" height="3rem" self="flex-end" align="center" style={{backgroundColor:"lightcoral"}}>
-              nav
-            </Container>
-            <Container>
+            <Navbar/>
+            <Container flex width="100%" height="100%" style={{backgroundColor:"red"}}>
             graphic
             </Container>
-            <ExtraData flex width="100%" align="center" height="10rem">
+            <ExtraData flex width="100%" align="center" height="16rem">
               extra data
             </ExtraData>
         </RightWrapper>

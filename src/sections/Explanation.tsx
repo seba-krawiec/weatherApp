@@ -1,17 +1,22 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { useTheme } from 'styled-components'
 import { Container } from '../components'
 
 
 export const Explanation = () => {
+
+  const theme = useTheme();
+
   return (
     <Container
       flex
     width={"100%"}
     height={"100vh"}
-    style={{backgroundColor:"orange", scrollSnapAlign:"start"}}
+    style={{paddingBottom:"4.8rem"}}
     >
-      explanation
+      <div style={{backgroundColor:"orange",height:"100%", width:"100%"}}>
+        explanation
+      </div>
     </Container>
   )
 }

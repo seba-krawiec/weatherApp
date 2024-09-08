@@ -26,16 +26,18 @@ let prevScrollDirection = '';
       
       if (st > prevScrollTop && prevScrollDirection !== 'down') {
         // downscroll code here
+
+        // hay que sumar siempre el tamaño de la seccion hasta que sea igual que el tamaño del documento
         console.log(sectionSize*2)
-          if( scrollValue > 0 && scrollValue < sectionSize) window.scrollTo({top:sectionSize, behavior: "smooth"})
-          if( scrollValue > sectionSize && scrollValue < (sectionSize * 2)) window.scrollTo({top:(sectionSize * 2), behavior: "smooth"})
+          // if( scrollValue > 0 && scrollValue < sectionSize) window.scrollTo({top:sectionSize, behavior: "smooth"})
+          // if( scrollValue > sectionSize && scrollValue < (sectionSize * 2)) window.scrollTo({top:(sectionSize * 2), behavior: "smooth"})
           // if( scrollValue > sectionSize && scrollValue ) return window.scrollTo({top:sectionSize, behavior: "smooth"})
           
         prevScrollDirection = 'down';
       }
       else if (st < prevScrollTop && prevScrollDirection !== 'up') {
         // upscroll code
-        if( scrollValue < sectionSize && scrollValue > 0 ) return window.scrollTo({top: 0,behavior: "smooth"})
+        // if( scrollValue < sectionSize && scrollValue > 0 ) return window.scrollTo({top: 0,behavior: "smooth"})
 
         prevScrollDirection = 'up';
       }

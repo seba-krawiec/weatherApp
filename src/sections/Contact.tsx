@@ -12,7 +12,7 @@ export const Contact = () => {
       flex
     width={"100%"}
     height={"100vh"}
-    style={{backgroundColor:"coral"}}
+    style={{backgroundColor:"coral", scrollSnapAlign: "start"}}
     >
       contact
     </Container>

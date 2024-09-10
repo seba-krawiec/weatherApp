@@ -12,9 +12,8 @@ export const Explanation = () => {
       flex
     width={"100%"}
     height={"100vh"}
-    style={{paddingBottom:"4.8rem"}}
     >
-      <div style={{backgroundColor:"orange",height:"100%", width:"100%"}}>
+      <div style={{backgroundColor:"orange",height:"100%", width:"100%",  scrollSnapAlign: "start"}}>
         explanation
       </div>
     </Container>

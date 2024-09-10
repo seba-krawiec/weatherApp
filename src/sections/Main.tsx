@@ -19,7 +19,7 @@ export const Main = () => {
     width={"100%"}
     height={"100vh"}
     justify={"space-between"}
-    style={{gap:theme.gaps.cardStreets, padding:`${theme.paddings.large} 0`}}
+    style={{gap:theme.gaps.cardStreets, padding:`${theme.paddings.large} 0`, scrollSnapAlign: "start"}}
     >
       <UpRow
       flex

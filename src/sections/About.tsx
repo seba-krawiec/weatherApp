@@ -11,7 +11,7 @@ export const About = () => {
     flex
     width={"100%"}
     height={"100vh"}
-    style={{backgroundColor:"gray"}}
+    style={{backgroundColor:"gray", scrollSnapAlign: "start"}}
     >about this
     </Container>
   )

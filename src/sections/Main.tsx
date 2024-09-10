@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Maincard, Navbar } from '../components'
+import { Card, Container, Maincard, Navbar } from '../components'
 import styled, { useTheme } from 'styled-components'
 
 export const Main = () => {
@@ -49,8 +49,15 @@ export const Main = () => {
           <h2>tiempo extendido 7 dias</h2>
           <button onClick={handleClick}>volver a hoy</button>
         </Container>
-        <Container flex justify="space-between" align="center">
-            cards
+        <Container flex justify="space-between" align="center" height='100%' width='70%'>
+            <Card/>
+            <Card/>
+            <Card/>
+            <Card/>
+            <Card/>
+            <Card/>
+            <Card/>
+
         </Container>
       </BottomRow>
 
@@ -69,7 +76,8 @@ background-color:${(p) => p.theme.colors.orange500};
  height:35%;
  box-shadow: ${(p) => (p.theme.shadows.black, p.theme.shadows.colorized(p.theme.colors.orange500))};
  border-radius: 1.5rem;
- padding: 2.4rem;
+ padding: 2.4rem 10rem 2.4rem 3rem;
+ /* padding-right: 10rem; */
 `;
 
 

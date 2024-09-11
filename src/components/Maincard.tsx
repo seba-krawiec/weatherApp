@@ -1,6 +1,15 @@
 import  React from 'react'
 import styled from 'styled-components';
-import { sunny, cloudy, rainy, rainy_storm, storm, day_cloudy, day_rainy } from "../assets/images/all";
+import {     cloudy,
+  day_cloudy,
+  day_rainy,
+  moon,
+  night_cloudy,
+  night_rainy,
+  rainy_storm,
+  rainy,
+  storm,
+  sunny } from "../assets/images/all";
 import { Container } from './Container.tsx';
 
 
@@ -10,12 +19,15 @@ export const Maincard = () => {
     const handleImage = (weather) => {
 
         const imageByWeather = {
-          sun : sunny,
-          cloud: cloudy,
-          rain: rainy,
-          rainyStorm: rainy_storm,
-          dayCloudy: day_cloudy,
-          dayRainy: day_rainy,
+          sunny,
+          cloudy,
+          rainy,
+          rainy_storm,
+          day_cloudy,
+          day_rainy,
+          moon,
+          night_cloudy,
+          night_rainy,
           storm,
         }
     
@@ -34,7 +46,7 @@ export const Maincard = () => {
       <MainFigure>
         <div>
 
-        <img src={handleImage("rainyStorm")} alt="weather today"/>
+        <img src={handleImage("rainy_storm")} alt="weather today"/>
         </div>
         <figcaption>
           <span>23ºC</span>
@@ -57,6 +69,7 @@ background-color:${(p) => p.theme.colors.orange300};
  border-radius: ${(p) => p.theme.borderRadius.common};
  padding: 3rem 2.5rem;
  box-shadow: ${(p) => (p.theme.shadows.black,p.theme.shadows.colorized(p.theme.colors.orange300))};
+
 `;
 
 const MainFigure = styled.figure`

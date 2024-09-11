@@ -2,15 +2,20 @@ import React from 'react'
 import { Card, Container, Maincard, Navbar } from '../components'
 import styled, { useTheme } from 'styled-components'
 
-export const Main = () => {
+
+interface MainProps {
+  onChange?: () => void,
+  children?:  React.ReactNode ,
+}
+
+export const Main = ({onChange}):MainProps => {
 
     const theme = useTheme();
 
     const handleClick = () => {
+      console.log("parkour")
+    }
 
-        console.log("choto mate")
-    
-      };
 
   return (
     <Container
@@ -77,7 +82,6 @@ background-color:${(p) => p.theme.colors.orange500};
  box-shadow: ${(p) => (p.theme.shadows.black, p.theme.shadows.colorized(p.theme.colors.orange500))};
  border-radius: 1.5rem;
  padding: 2.4rem 10rem 2.4rem 3rem;
- /* padding-right: 10rem; */
 `;
 
 

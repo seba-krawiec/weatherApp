@@ -2,12 +2,11 @@ import styled from "styled-components";
 import { Container } from "./components";
 import backgroundPattern from "./assets/backgroundPattern.png";
 import { About, Explanation, Contact, Main } from "./sections";
-import { useEffect, useState } from "react";
 
-function App() {
+function App({ onChange }) {
   return (
     <AppContainer align={"center"} padding={"0px 24px"} style={{ gap: "24px" }}>
-      <Main />
+      <Main onChange={onChange} />
       <Explanation />
       <About />
       <Contact />

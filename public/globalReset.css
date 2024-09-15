@@ -6,6 +6,9 @@
 
   html{
     font-size: 62.5%;
+  }
+
+  html:focus-within {
     scroll-behavior: smooth;
   }
 

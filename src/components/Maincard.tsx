@@ -7,7 +7,6 @@ import {
   moon,
   night_cloudy,
   night_rainy,
-  rainy_storm,
   rainy,
   storm,
   sunny,

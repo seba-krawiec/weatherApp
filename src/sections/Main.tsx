@@ -42,8 +42,25 @@ export const Main = ({onChange}):MainProps => {
             <Container flex width="100%" height="100%" style={{backgroundColor:"red"}}>
             graphic
             </Container>
-            <ExtraData flex width="100%" align="center" height="16rem">
-              extra data
+            <ExtraData flex width="100%" align="center" height="16rem" justify='space-between'>
+              <div>
+                sensacion termica
+              </div>
+              <div>
+                humedad
+              </div>
+              <div>
+                precipitaciones
+              </div>
+              <div>
+                velocidad del viento
+              </div>
+              <div>
+                salida del sol
+              </div>
+              <div>
+                puesta del sol
+              </div>
             </ExtraData>
         </RightWrapper>
 
@@ -81,7 +98,7 @@ background-color:${(p) => p.theme.colors.orange500};
  height:35%;
  box-shadow: ${(p) => (p.theme.shadows.black, p.theme.shadows.colorized(p.theme.colors.orange500))};
  border-radius: 1.5rem;
- padding: 2.4rem 10rem 2.4rem 3rem;
+ padding: 2.4rem 10rem;
 `;
 
 
@@ -96,4 +113,5 @@ background-color:${(p) => p.theme.colors.orange200};
 border-radius: ${(p) => p.theme.borderRadius.common};
 box-shadow: ${(p) => (p.theme.shadows.black, p.theme.shadows.colorized(p.theme.colors.orange200))};
 height: 20rem;
+padding: ${(p) => `${p.theme.paddings.medium} ${p.theme.paddings.large}`};
 `;

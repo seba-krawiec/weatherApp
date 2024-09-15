@@ -1,6 +1,7 @@
 import  React from 'react'
 import styled from 'styled-components';
-import {     cloudy,
+import {
+  cloudy,
   day_cloudy,
   day_rainy,
   moon,
@@ -9,27 +10,41 @@ import {     cloudy,
   rainy_storm,
   rainy,
   storm,
-  sunny } from "../assets/images/all";
+  sunny,
+  cloud,
+  snowy,
+  mist
+} from "../assets/images/all";
 import { Container } from './Container.tsx';
-
 
 
 export const Maincard = () => {
 
     const handleImage = (weather) => {
 
-        const imageByWeather = {
-          sunny,
-          cloudy,
-          rainy,
-          rainy_storm,
-          day_cloudy,
-          day_rainy,
-          moon,
-          night_cloudy,
-          night_rainy,
-          storm,
-        }
+      const imageByWeather = {
+        "01d":sunny,
+        "02d":day_cloudy,
+        "03d":cloud,
+        "04d":cloudy,
+        "9d":rainy,
+        "10d":day_rainy,
+        "11d":storm,
+        "13d":snowy,
+        "50d": mist,
+  
+        // night
+        "01n":moon,
+        "02n":night_cloudy,
+        "03n":cloud,
+        "04n":cloudy,
+        "9n":rainy,
+        "10n":night_rainy,
+        "11n":storm,
+        "13n":snowy,
+        "50n": mist,
+  
+      }
     
         return imageByWeather[weather];
     
@@ -46,14 +61,12 @@ export const Maincard = () => {
       <MainFigure>
         <div>
 
-        <img src={handleImage("rainy_storm")} alt="weather today"/>
+        <img src={handleImage("11n")} alt="weather today"/>
         </div>
         <figcaption>
           <span>23ºC</span>
-          <span>min:16ºC max:25ºC</span>
-          <span>precipitaciones: 90%</span>
-          <span>humedad: 10%</span>
-
+          <span>minima:16ºC</span>
+          <span>maxima:25ºC</span>
         </figcaption>
       </MainFigure>
         
@@ -97,11 +110,11 @@ const MainFigure = styled.figure`
 
     span:first-child {
      font-size : 10rem;
-     font-weight: 600;
+     font-weight: 800;
      margin-bottom: ${(p) => p.theme.margins.large};
     }
     span {
-      font-size : 2.6rem;
+      font-size : 3rem;
      font-weight: 400;
      margin-bottom: ${(p) => p.theme.margins.small};
     }

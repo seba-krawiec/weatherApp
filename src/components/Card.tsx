@@ -10,34 +10,49 @@ import {     cloudy,
   rainy_storm,
   rainy,
   storm,
-  sunny} from "../assets/images/all.js";
+  sunny,
+  cloud,
+  snowy,
+  mist,
+} from "../assets/images/all.js";
 
 
 interface cardProps {
-  dia: string, 
-  mainTemp: string,
-  minTemp: string,
-  maxTemp: string,
-  weather: string
+  dia?: string, 
+mainTemp?: string,
+minTemp?: string,
+maxTemp?: string,
+weather?: string
 }
 
 
-export const Card = ({dia, mainTemp, minTemp, maxTemp, weather }) => {
+export const Card = ({dia, mainTemp, minTemp, maxTemp, weather }: cardProps) => {
 
 
   const handleImage = (weather) => {
 
     const imageByWeather = {
-      sunny,
-      cloudy,
-      rainy,
-      rainy_storm,
-      day_cloudy,
-      day_rainy,
-      moon,
-      night_cloudy,
-      night_rainy,
-      storm,
+      "01d":sunny,
+      "02d":day_cloudy,
+      "03d":cloud,
+      "04d":cloudy,
+      "9d":rainy,
+      "10d":day_rainy,
+      "11d":storm,
+      "13d":snowy,
+      "50d": mist,
+
+      // night
+      "01n":moon,
+      "02n":night_cloudy,
+      "03n":cloud,
+      "04n":cloudy,
+      "9n":rainy,
+      "10n":night_rainy,
+      "11n":storm,
+      "13n":snowy,
+      "50n": mist,
+
     }
 
     return imageByWeather[weather];
@@ -57,7 +72,7 @@ export const Card = ({dia, mainTemp, minTemp, maxTemp, weather }) => {
         <Wrapper flex  align='center' justify='space-between'>
         <div>
 
-        <img src={handleImage("night_cloudy")} alt="weather" />
+        <img src={handleImage("13n")} alt="weather" />
         </div>
         <span>20ºC</span>
 

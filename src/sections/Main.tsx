@@ -1,16 +1,71 @@
 import React from 'react'
 import { Card, Container, Maincard, Navbar } from '../components'
 import styled, { useTheme } from 'styled-components'
+import { icons } from '../assets/icons';
 
+
+const { Humidity,
+  FeelsLike,
+  Precipitations,
+  Sunrise,
+  Sunset,
+  Wind} = icons;
 
 interface MainProps {
   onChange?: () => void,
   children?:  React.ReactNode ,
 }
 
-export const Main = ({onChange}):MainProps => {
+interface ExtraData {
+  label?: string,
+  icon?: React.ReactNode,
+  data?: string
+}
+
+const extraData:ExtraData[] = [
+  {
+    label:"sensacion termica",
+    icon:<FeelsLike/>,
+    data:"25º",
+
+  },
+  {
+    label:"humedad",
+    icon:<Humidity/>,
+    data:"90%",
+
+  },
+  {
+    label:"precipitaciones",
+    icon:<Precipitations/>,
+    data:"10%",
+
+  },
+  {
+    label:"velocidad del viento",
+    icon:<Wind/>,
+    data:"20km/h",
+
+  },
+  {
+    label:"salida del sol",
+    icon:<Sunrise/>,
+    data:"10:00 am",
+
+  },
+  {
+    label:"puesta del sol",
+    icon:<Sunset/>,
+    data:"08:00 pm",
+
+  }
+]
+
+export const Main = ({onChange}:MainProps) => {
 
     const theme = useTheme();
+
+
 
     const handleClick = () => {
       console.log("parkour")
@@ -42,26 +97,21 @@ export const Main = ({onChange}):MainProps => {
             <Container flex width="100%" height="100%" style={{backgroundColor:"red"}}>
             graphic
             </Container>
-            <ExtraData flex width="100%" align="center" height="16rem" justify='space-between'>
-              <div>
-                sensacion termica
-              </div>
-              <div>
-                humedad
-              </div>
-              <div>
-                precipitaciones
-              </div>
-              <div>
-                velocidad del viento
-              </div>
-              <div>
-                salida del sol
-              </div>
-              <div>
-                puesta del sol
-              </div>
-            </ExtraData>
+            <Container flex width="100%" align="center" height="16rem" justify='space-between'>
+
+            {extraData.map(({label, icon, data}, index) => {
+              return (
+
+                <ExtraDataCard key={index} flex column align='center' justify='space-between'>
+                <h2>{label?.toUpperCase()}</h2>
+                <Wrapper>
+                <div>{icon}</div>
+                <span>{data}</span>
+                </Wrapper>
+              </ExtraDataCard>
+              )
+            })}
+            </Container>
         </RightWrapper>
 
       </UpRow>
@@ -108,10 +158,40 @@ width:100%;
 gap: ${(p) => p.theme.gaps.cardStreets};
 `;
 
-const ExtraData = styled(Container)`
+const ExtraDataCard = styled(Container)`
+
 background-color:${(p) => p.theme.colors.orange200};
-border-radius: ${(p) => p.theme.borderRadius.common};
-box-shadow: ${(p) => (p.theme.shadows.black, p.theme.shadows.colorized(p.theme.colors.orange200))};
-height: 20rem;
-padding: ${(p) => `${p.theme.paddings.medium} ${p.theme.paddings.large}`};
+  padding: 2rem;
+  border-radius: 1.5rem;
+  flex-wrap: wrap;
+  width: 20rem;
+  height: 100%;
+  box-shadow: ${(p) => (p.theme.shadows.black, p.theme.shadows.colorized(p.theme.colors.orange200))};
+
+  h2{
+  display: inline-block;
+  min-width: 50%;
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+`;
+
+const Wrapper = styled.div`
+display: flex;
+align-items: center;
+gap: 1rem;
+
+
+
+svg{
+  width: 3rem;
+  height: 3rem;
+}
+
+span{
+  line-break: auto;
+  font-size: 1.5rem;
+}
 `;

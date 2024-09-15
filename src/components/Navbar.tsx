@@ -14,13 +14,18 @@ export const Navbar = () => {
     align="center"
     justify="space-between"
     >
-        <SearchContainer flex>
+        <Wrapper flex justify='space-between' align='center'>
+
                 <span>Buenos Aires</span>
                 <Location/>
-                <div></div>
-                <input type="text" />
+                <Separator/>
+        <SearchContainer flex align='center'>
+                <button type="submit">
                 <Search/>
+                </button>
+                <input placeholder='search location' type="text" />
         </SearchContainer>
+        </Wrapper>
         <UnitContainer flex>
             <h2>C</h2>
             <h2>F</h2>
@@ -35,50 +40,78 @@ export const Navbar = () => {
 
 const NavBar = styled(Container)`
     gap: 1.5rem;
+
+`;
+
+const Wrapper = styled(Container)`
+    gap: 1rem;
+    box-shadow: ${(p) => (p.theme.shadows.black, p.theme.shadows.colorized(p.theme.colors.orange300))};
+    background-color:${p => p.theme.colors.orange300};
+    border-radius: 1.5rem;
+    padding: ${p => `${p.theme.paddings.medium}`};
+    color: white;
+    font-size: 2rem;
+
+`;
+
+const Separator = styled.div`
+    background-color: white;
+    width: .4rem;
+    height: 2.5rem;
+    border-radius:1rem;
 `;
 
 const SearchContainer = styled(Container)`
 position: relative;
-gap: 1.5rem;
-svg {
-        transform:scale(1.2)
-    }
+overflow-x: hidden;
+transition: width ease-in-out 300ms;
+width: 2.5rem;
 
-    div{
-        background-color: white;
-        width: .4rem;
-        height: 2.5rem;
-        border-radius:1rem
-    }
+button{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    height: 2.5rem;
+    width: 2.5rem;
+    margin-left: auto;
 
-color: white;
-    background-color:${p => p.theme.colors.orange300};
-    padding: ${p => `${p.theme.paddings.medium}`};
-    border-radius: 1rem;
-    box-shadow: ${(p) => (p.theme.shadows.black, p.theme.shadows.colorized(p.theme.colors.orange300))};
-    height: 5rem;
+    svg{
+        transform: scale(1.1);
+        cursor: pointer;
+    }
+}
+
+
+input{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    flex-grow: 1;
+    padding: 0 .8rem .5rem 0;
+    background-color: transparent;
+    border: none;
+    opacity: 0;
+    color: white;
     font-size: 2rem;
+    cursor: pointer;
 
-    input{
-        background-color: transparent;
-        border: none;
-        color: whitesmoke;
-        padding: 0rem .5rem .5rem .5rem;
-        border-bottom: solid .3rem whitesmoke;
-        outline: none;
-        opacity: 0;
-        pointer-events: none;
-        width: 0;
-        position: absolute;
+    &:focus{
+        outline: 0;
     }
+}
 
-    &:hover input{
+&:focus-within{
+    width: 20rem;
+    & input{
         opacity: 1;
-        pointer-events: all;
-        width: 10rem;
-        position: initial;
-        transition: all 1.5s;
+        border-bottom: solid white .2rem;
+        cursor: initial;
+        width: calc(100% - 2.5rem);
     }
+}
+
 `;
 
 const UnitContainer = styled(Container)`

@@ -2,7 +2,25 @@ import React from 'react'
 import { Card, Container, Maincard, Navbar } from '../components'
 import styled, { useTheme } from 'styled-components'
 import { icons } from '../assets/icons';
+import { Line } from 'react-chartjs-2';
+import {
+  Chart as ChartJs,
+  LineElement,
+  CategoryScale,//x axis
+  LinearScale,//y axis
+  PointElement,
+  Legend,
+  Filler
+} from "chart.js"
 
+ChartJs.register(
+  LineElement,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  Legend,
+  Filler
+)
 
 const { Humidity,
   FeelsLike,
@@ -61,11 +79,45 @@ const extraData:ExtraData[] = [
   }
 ]
 
+
+
+
+
 export const Main = ({onChange}:MainProps) => {
 
     const theme = useTheme();
 
+    const data = {
+      labels: ["00:00", "03:00", "06:00", "09:00" ],// x axis
+      datasets: [{
+        label:"clima cada 3hrs",
+        data:[18, 20, 17, 22],// y axis
+        backgroundColor:"orange",
+        borderColor: "orange",
+        pointBorderColor: "orangered",
+        tension: 0.4,
+        fill:true,
+        pointStyle: "star",
+      }]
 
+    };
+
+    const options = {
+      responsive:true,
+      plugins:{
+        legend: true,
+        filler: {
+          propagate: true
+      }
+      },
+      scales:{
+        y:{
+          min: 0,
+          max: 25,
+        }
+      }
+
+    };
 
     const handleClick = () => {
       console.log("parkour")
@@ -94,8 +146,11 @@ export const Main = ({onChange}:MainProps) => {
         align={"center"}
         >
             <Navbar/>
-            <Container flex width="100%" height="100%" style={{backgroundColor:"red"}}>
-            graphic
+            <Container flex width="100%" height="55%">
+              <Line
+              data={data}
+              // options={options}
+              ></Line>
             </Container>
             <Container flex width="100%" align="center" height="16rem" justify='space-between'>
 
